@@ -365,3 +365,5 @@ tb = TestBunny.new
 tb.first_method
 tb.second_method
 puts "#{TestBunny::HEY}"
+
+puts "Hi from GitHub.com"
