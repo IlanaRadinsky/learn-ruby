@@ -471,6 +471,20 @@ puts ('a'..'i').to_a #just returning the array itself puts each element of the a
 b = a.collect{|x| 10*x}
 puts b
 
-puts "Enter a value: "
-val = gets
-puts val
+# ---- STD I/O -----
+# puts "Enter a value: "
+# val = gets
+# puts val
+
+aFile = File.new("myfile.txt", "r+")
+if aFile
+	aFile.syswrite("ABCDEF")
+else
+	puts "Unable to open file!"
+end
+
+arr = IO.readlines("myfile.txt")
+puts arr[0]
+puts arr[1]
+
+File.rename("myfile.txt", "newfile.txt")
