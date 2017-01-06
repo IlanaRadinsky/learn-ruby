@@ -434,3 +434,43 @@ puts "#{time.to_a}" #returns array in form: [sec,min,hour,day,month,year,wday,yd
 					#can then pass this array to time.utc to get it in UTC format
 
 puts "#{Time.now.to_i}"					
+
+# ---- RANGES ----
+
+range1 = (1..10).to_a #converts a range to an array
+range2 = ('bar'..'bat').to_a
+
+puts "#{range1}"
+puts "#{range2}"
+
+# Assume a range
+digits = 0..9
+
+puts digits.include?(5)
+ret = digits.min
+puts "Min value is #{ret}"
+
+ret = digits.max
+puts "Max value is #{ret}"
+
+ret = digits.reject {|i| i < 5 }
+puts "Rejected values are #{ret}"
+
+digits.each do |digit|
+   puts "In Loop #{digit}"
+end
+
+if ((1..10)===5)
+	puts "5 lies in (1..10)"
+end
+
+a = (1..5).to_a
+puts a.collect{ |e| e} #using #{} returns the array as a value
+puts ('a'..'i').to_a #just returning the array itself puts each element of the array on a line of its own
+
+b = a.collect{|x| 10*x}
+puts b
+
+puts "Enter a value: "
+val = gets
+puts val
