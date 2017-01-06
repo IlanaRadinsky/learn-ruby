@@ -383,4 +383,18 @@ puts "#{foo}"
 foo = foo*3
 puts "#{foo}"
 
-puts "#{String==foo}"
+months = Hash.new "month" #default value of months is "month", if don't include "month" then default value is nil
+puts "#{months[0]}"
+puts "#{months[72]}"
+
+months = {"1"=> "January", "2"=> "February"}
+keys = months.keys
+puts "#{keys}"
+
+H = Hash["a" => 100, "b"=> 200]
+
+puts "#{H["a"]}"
+puts "#{H["b"]}"
+
+tester = Hash[[1,"jan"]=>"January"] #can use any Ruby object as a key or value
+puts "#{tester[[1,"jan"]]}"
