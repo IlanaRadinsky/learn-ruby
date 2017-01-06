@@ -367,3 +367,20 @@ tb.second_method
 puts "#{TestBunny::HEY}"
 
 puts "Hi from GitHub.com"
+
+puts %{Hello}
+puts %^Hello2^ #delimiter characters are arbitrary, as long as preceeded by %
+puts %Q{Ruby is fun}
+puts "Say \"hi!\""
+puts "\tHello!" #in a double-quoted string, escape characters are interpreted
+puts '\tHello!' #in a single-quoted string, escape characters are preserved
+
+myStr = String.new("THIS IS A TEST") #to use string methods, must create a string OBJECT
+foo = myStr.downcase
+
+puts "#{foo}"
+
+foo = foo*3
+puts "#{foo}"
+
+puts "#{String==foo}"
