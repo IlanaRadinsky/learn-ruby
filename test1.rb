@@ -269,6 +269,7 @@ puts "#{$GOODBYE}"
 sample "Yay", "Me"
 =end
 
+=begin
 def test
 	puts "You are in the method"
 	yield #inserts the block of code with the same name as the method
@@ -486,5 +487,42 @@ end
 arr = IO.readlines("myfile.txt")
 puts arr[0]
 puts arr[1]
+puts arr
 
-File.rename("myfile.txt", "newfile.txt")
+=end
+
+# ---- CLASSES ----
+class Box
+	@@count = 0 #class variable - shared between all instances of the class
+	def initialize(w,h)
+		@width, @height = w, h #@ -> instance variables
+		@@count += 1
+	end
+
+	#class method - can be called without an instance of the class in form [class name].method()
+	def self.printCount() #definte 
+		puts "Box count is: #@@count"
+	end
+
+	#accessor methods
+	def boxWidth
+		@width #don't need return statement bc function will automatically return the last value
+	end
+
+	def boxHeight
+		@height
+	end
+
+	#setter methods
+	def setWidth=(value) #can't have spaces in between method name and =
+		@width = value
+	end
+
+	def setHeight=(value)
+		@height = value
+	end
+
+	def getArea
+		@width * @height
+	end
+end
