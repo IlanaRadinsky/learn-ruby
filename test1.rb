@@ -571,3 +571,16 @@ end
 puts Box::BOX_COMPANY
 
 box1 = Box.allocate #creates an uninitialized Box object
+
+
+#---- SEARCH AND REPLACE ----
+phone = "2004-959-559 #This is Phone Number"
+
+# Delete Ruby-style comments
+phone = phone.sub!(/#.*$/, "")   #deletes everything after the #
+puts "Phone Num : #{phone}"		#sub replaces first occurence, gsub replaces all occurences
+								#without ! => returns a new string; with ! => modifies the original string
+
+# Remove anything other than digits
+phone = phone.gsub!(/\D/, "")    
+puts "Phone Num : #{phone}"
