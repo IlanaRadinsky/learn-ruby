@@ -493,10 +493,17 @@ puts arr
 
 # ---- CLASSES ----
 class Box
+	BOX_COMPANY = "TATA Inc" #class constant - cannot be changed once defined
+
 	@@count = 0 #class variable - shared between all instances of the class
 	def initialize(w,h)
 		@width, @height = w, h #@ -> instance variables
 		@@count += 1
+	end
+
+	#to string method - all classes should have one of these
+	def to_s 
+		"(w:#@width, h:#@height)"
 	end
 
 	#class method - can be called without an instance of the class in form [class name].method()
@@ -525,4 +532,42 @@ class Box
 	def getArea
 		@width * @height
 	end
+
+	#operator overloading
+	def +(other) #vector addition of 2 box objects
+		Box.new(@width + other.width, @height +  other.height)
+	end
+
+	def -@ #unary minus to negate height and width
+		Box.new(-@width, -@height)
+	end
+
+	def *(scalar) #multiplies Box width and height by a scalar
+		Box.new(@width*scalar, @height*scalar)
+	end
 end
+
+class BigBox < Box #BigBox is a subclass of Box
+	def getArea #can override Box methods or define new methods
+		@area = @width * @height
+		puts "Bix box area is: #@area"
+	end
+end
+
+b = Box.new(5,6)
+puts "#{b.to_s}"
+b = -b
+puts "#{b.to_s}"
+
+b.freeze
+if b.frozen?
+	puts "Box object is a frozen object"
+else
+	puts "Box object is normal object"
+end
+
+# b.setWidth=21 => won't work bc b is frozen
+
+puts Box::BOX_COMPANY
+
+box1 = Box.allocate #creates an uninitialized Box object
